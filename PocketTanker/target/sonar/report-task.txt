@@ -1,0 +1,5 @@
+projectKey=com.pocket.tanker:pocket-tanker
+serverUrl=http://localhost:4950
+dashboardUrl=http://localhost:4950/dashboard/index/com.pocket.tanker:pocket-tanker
+ceTaskId=AWVyE3QQKZ2I14R-ew5j
+ceTaskUrl=http://localhost:4950/api/ce/task?id=AWVyE3QQKZ2I14R-ew5j
