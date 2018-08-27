@@ -17,16 +17,14 @@ import com.pocket.tank.app.model.Fighter;
 
 /**
  * @author Manjunath
+ * 
+ * Action chosen by user among the application feature is navigated here to be served.
  *
  */
 public class WelcomeActionsDelegate implements IMenuActionDelegate {
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.pocket.tank.menu.shower.delegate.IMenuShowerDelegate#actOnMenuSelection(
-	 * java.lang.String)
+	/**
+	 * user selected feature is performed here. 
 	 */
 	@Override
 	public void actOnMenuSelection(String input) {
@@ -48,7 +46,7 @@ public class WelcomeActionsDelegate implements IMenuActionDelegate {
 		case "4":
 			System.out.println(Constants.LOAD_FIGHT);
 			FightInfo existingfight = fightSaver.getFightInfo();
-			validateExistingFight(existingfight);
+			validateAndResumeExistingFight(existingfight);
 			break;
 		case "5":
 			exitGame();
@@ -58,12 +56,15 @@ public class WelcomeActionsDelegate implements IMenuActionDelegate {
 			PocketTankInitializer.initialize();
 			break;
 		}
-
 	}
 
-	private void validateExistingFight(FightInfo existingFight) {
+	/**
+	 * validates if on-hold fight is saved by user previously to resume or show to user.
+	 * @param existingFight
+	 */
+	private void validateAndResumeExistingFight(FightInfo existingFight) {
 		if(null != existingFight && (null == existingFight.getUserFighter() ||
-				!FightStatus.onHold.toString().equalsIgnoreCase(existingFight.getStatus().toString()))) {
+				!FightStatus.ON_HOLD.toString().equalsIgnoreCase(existingFight.getStatus().toString()))) {
 			System.out.println(Constants.NO_FIGHT_TO_RESUME);
 			PocketTankInitializer.initialize();
 		}else {
@@ -72,12 +73,18 @@ public class WelcomeActionsDelegate implements IMenuActionDelegate {
 		}
 	}
 	
+	/**
+	 * initiates fight feature.
+	 */
 	private void beginFight() {
 		organizeFight();
-		fight.setStatus(FightStatus.live);
+		fight.setStatus(FightStatus.LIVE);
 		FightInitializer.initialize();
 	}
 
+	/**
+	 * initial info reader post fight begin
+	 */
 	private void organizeFight() {
 		System.out.println(Constants.BEGIN_FIGHT);
 		System.out.println("Your opponent :" +fight.getOpponentFighter().toString()+"\n");
@@ -98,12 +105,12 @@ public class WelcomeActionsDelegate implements IMenuActionDelegate {
 
 	@Override
 	public void actOnOpponentAction() {
-		System.out.println(Constants.NOT_SUPPORTED_METHOD);
+		throw new UnsupportedOperationException(Constants.NOT_SUPPORTED_METHOD);		
 	}
 
 
 	public boolean isFightON() {
-		if(0==FightStatus.live.compareTo(fight.getStatus())) {
+		if(0==FightStatus.LIVE.compareTo(fight.getStatus())) {
 			return true;
 		}
 		return false;

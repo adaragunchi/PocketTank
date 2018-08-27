@@ -1,13 +1,13 @@
 package com.pocket.tank.app.enums;
 
 public enum WelcomeMenuItems {
-	newprofile("1. Create new fighter"),
-	existingProfile("2. View fighter profile"),
-	viewExistingFight("3. View existing fights"),
-	resume("4. Resume previous game"),
-	exit("5. Exit");
+	NEW_PROFILE("1. Create new fighter"),
+	EXISTING_PROFILE("2. View fighter profile"),
+	VIEW_EXISTING_FIGHT("3. View existing fights"),
+	RESUME("4. Resume previous game"),
+	EXIT("5. Exit");
 	
-	public String menuName;
+	private String menuName;
 	
 	private WelcomeMenuItems(String menuName) {
 		this.menuName = menuName;
@@ -15,10 +15,6 @@ public enum WelcomeMenuItems {
 
 	public String getMenuName() {
 		return menuName;
-	}
-
-	public void setMenuName(String menuName) {
-		this.menuName = menuName;
 	}
 
 }

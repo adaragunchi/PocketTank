@@ -1,5 +1,8 @@
 Manifest-Version: 1.0
 Built-By: M1027311
+Class-Path: lib/hamcrest-core-1.3.jar lib/mockito-core-2.0.5-beta.jar 
+ lib/objenesis-2.1.jar
 Build-Jdk: 1.8.0_45
 Created-By: Maven Integration for Eclipse
+Main-Class: com.pocket.tank.app.PocketTankApplication
 

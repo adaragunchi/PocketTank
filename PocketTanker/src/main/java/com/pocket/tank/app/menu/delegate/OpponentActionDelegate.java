@@ -15,16 +15,14 @@ import com.pocket.tank.app.fighter.actions.FighterActionContext;
 
 /**
  * @author Manjunath
+ * 
+ * Action for opponent is randomly generated and performed here.
  *
  */
 public class OpponentActionDelegate implements IMenuActionDelegate {
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.pocket.tank.menu.shower.delegate.IMenuShowerDelegate#actOnMenuSelection(
-	 * java.lang.String)
+	/**
+	 * randomly selected actions among available actions are performed here.
 	 */
 	@Override
 	public void actOnMenuSelection(String input) {
@@ -43,30 +41,36 @@ public class OpponentActionDelegate implements IMenuActionDelegate {
 		default:
 			break;
 		}
-
 	}
 
+	@Override
 	public boolean isFightON() {
-		if(0==FightStatus.live.compareTo(fight.getStatus())) {
+		if(0==FightStatus.LIVE.compareTo(fight.getStatus())) {
 			return true;
 		}
 		return false;
 	}
 	
+	@Override
 	public void actOnOpponentAction() {
 		String input = getRandomActionsForOpponent();
 		actOnMenuSelection(input);
 	}
 	
+	/**
+	 * Chooses random action among available fight actions for opponent.
+	 * Noting that Opponent can not choose to exit the game.
+	 * @return
+	 */
 	private String getRandomActionsForOpponent() {
 		List<String> opponentactions = new ArrayList<>();
 		for (FighterActions fighterActions : FighterActions.values()) {
-			if(!FighterActions.SaveandExit.toString().equalsIgnoreCase(fighterActions.getActionName())) {
+			if(!FighterActions.SAVE_AND_EXIT.getActionName().equalsIgnoreCase(fighterActions.getActionName())) {
 				opponentactions.add(fighterActions.getActionName());
 			}
 		}
-		int weapon = getRandomInt(0, opponentactions.size());
-		String randomAction = opponentactions.get(weapon).split(" ")[0];
+		int actionSelected = getRandomInt(0, opponentactions.size());
+		String randomAction = opponentactions.get(actionSelected).split(" ")[0];
 		return randomAction;
 	}
 	

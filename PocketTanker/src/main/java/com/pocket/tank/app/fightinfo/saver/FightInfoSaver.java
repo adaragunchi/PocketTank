@@ -11,11 +11,11 @@ import com.pocket.tank.app.model.Fighter;
  *
  */
 public interface FightInfoSaver {
-	public void saveFighter(Fighter fighter);
+	void saveFighter(Fighter fighter);
 
-	public void saveFighterInfo(FightInfo fightInfo);
+	void saveFighterInfo(FightInfo fightInfo);
 
-	public FightInfo getFightInfo();
+	FightInfo getFightInfo();
 
-	public Fighter getFighter();
+	Fighter getFighter();
 }

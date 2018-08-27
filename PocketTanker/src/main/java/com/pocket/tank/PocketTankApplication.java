@@ -1,4 +1,4 @@
-package com.pocket.tank.app;
+package com.pocket.tank;
 
 import com.pocket.tank.app.config.PocketTankerAppConfiguration;
 

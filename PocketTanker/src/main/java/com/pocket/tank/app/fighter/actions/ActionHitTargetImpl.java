@@ -9,6 +9,8 @@ import com.pocket.tank.app.model.Fighter;
 
 /**
  * @author Manjunath
+ * 
+ * 
  *
  */
 public class ActionHitTargetImpl implements IFighterActionStrategy {

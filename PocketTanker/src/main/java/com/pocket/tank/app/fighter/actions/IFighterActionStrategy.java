@@ -7,9 +7,11 @@ import com.pocket.tank.app.model.Fighter;
 
 /**
  * @author Manjunath
+ * 
+ * Actions performing interface based on user's choice.
  *
  */
+@FunctionalInterface
 public interface IFighterActionStrategy {
-	public void performFighterAction(Fighter fighter);
-
+	void performFighterAction(Fighter fighter);
 }

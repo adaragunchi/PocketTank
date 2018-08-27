@@ -13,10 +13,15 @@ import com.pocket.tank.app.initializer.PocketTankInitializer;
 
 /**
  * @author Manjunath
+ * 
+ * Once user picks from available fight actions, the action is performed here.
  *
  */
 public class FighterActionDelegate implements IMenuActionDelegate{
 
+	/**
+	 * User picked actions are performed here.
+	 */
 	@Override
 	public void actOnMenuSelection(String input) {
 		FighterActionContext context;
@@ -32,19 +37,17 @@ public class FighterActionDelegate implements IMenuActionDelegate{
 			context.executeFighterAction(fight.getUserFighter());
 			break;
 		case "3":
-			if(isFightON()) {
-				fight.setStatus(FightStatus.onHold);
-			}
+			fight.setStatus(FightStatus.ON_HOLD);
 			fightSaver.saveFighterInfo(fight);
 			readOnSaveExitGame();
 			presentMenu();
 			break;
 		default:
 			System.out.println("invalid action! Please choose again.");
-			FightInitializer.initialize();
+			presentMenu();
 			break;
+			
 		}
-		
 	}
 
 	private void readActionHitStatus() {
@@ -69,11 +72,12 @@ public class FighterActionDelegate implements IMenuActionDelegate{
 
 	@Override
 	public void actOnOpponentAction() {
-		
+		throw new UnsupportedOperationException(Constants.NOT_SUPPORTED_METHOD);		
 	}
 	
+	@Override
 	public boolean isFightON() {
-		if(0==FightStatus.live.compareTo(fight.getStatus())) {
+		if(0==FightStatus.LIVE.compareTo(fight.getStatus())) {
 			return true;
 		}
 		return false;

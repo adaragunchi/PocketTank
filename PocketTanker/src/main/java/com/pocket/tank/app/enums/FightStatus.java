@@ -8,7 +8,7 @@ package com.pocket.tank.app.enums;
  *
  */
 public enum FightStatus {
-	live("live"), finished("finished"), draw("draw"),onHold("onHold");
+	LIVE("live"), FINISHED("finished"), DRAW("draw"), ON_HOLD("On Hold");
 
 	private String fightStatus;
 
@@ -24,14 +24,6 @@ public enum FightStatus {
 	 */
 	public String getFightStatus() {
 		return fightStatus;
-	}
-
-	/**
-	 * @param fightStatus
-	 *            the fightStatus to set
-	 */
-	public void setFightStatus(String fightStatus) {
-		this.fightStatus = fightStatus;
 	}
 
 }

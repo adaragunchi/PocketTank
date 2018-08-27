@@ -8,6 +8,8 @@ import com.pocket.tank.app.fighter.operations.UserFighterOperations;
 
 /**
  * @author Manjunath
+ * 
+ * factory takes care to provide instance of respective class for implementing a feature.
  *
  */
 public class OpponentFighterFactory extends FighterAbstractFactory{

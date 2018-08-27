@@ -43,8 +43,8 @@ public class OpponentActionDelegateTest {
 
 	@Test
 	public void actOnMenuSelection() {
-		/*FightInfo fight = new FightInfo();
-		fight.setStatus(FightStatus.live);
+		FightInfo fight = new FightInfo();
+		fight.setStatus(FightStatus.LIVE);
 		Fighter opponentFighter = new Fighter();
 		Fighter userFighter = new Fighter();
 		opponentFighter.setFighterName("Jack");
@@ -59,12 +59,12 @@ public class OpponentActionDelegateTest {
 		Mockito.doNothing().when(fighterActionStrategy).performFighterAction(Mockito.isA(Fighter.class));
 		opponentActionDelegate.actOnMenuSelection("1");
 		opponentActionDelegate.actOnMenuSelection("2");
-		*///FighterActionDelegate.actOnMenuSelection("3");
+		opponentActionDelegate.actOnMenuSelection("3");
 	}
 	
 	@Test
 	public void actOnOpponentAction() {
-		/*FightInfo fight = new FightInfo();
+		FightInfo fight = new FightInfo();
 		Fighter opponentFighter = new Fighter();
 		Fighter userFighter = new Fighter();
 		opponentFighter.setFighterName("Jack");
@@ -75,6 +75,7 @@ public class OpponentActionDelegateTest {
 		fight.setOpponentFighter(opponentFighter);
 		fight.setUserFighter(userFighter);
 		Mockito.doNothing().when(fighterActionContext).executeFighterAction(Mockito.isA(Fighter.class));
-		opponentActionDelegate.actOnOpponentAction();*/
+		IMenuActionDelegate.fight.loadFight(fight);
+		opponentActionDelegate.actOnOpponentAction();
 	}
 }

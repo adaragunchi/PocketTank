@@ -3,6 +3,7 @@
  */
 package com.pocket.tank.app.results.delegate;
 
+import com.pocket.tank.app.constants.Constants;
 import com.pocket.tank.app.enums.FightStatus;
 import com.pocket.tank.app.menu.delegate.IMenuActionDelegate;
 import com.pocket.tank.app.model.Fighter;
@@ -12,18 +13,6 @@ import com.pocket.tank.app.model.Fighter;
  *
  */
 public class FightResultShowerDelegate implements IMenuActionDelegate {
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.pocket.tank.menu.shower.delegate.IMenuShowerDelegate#actOnMenuSelection(
-	 * java.lang.String)
-	 */
-	@Override
-	public void actOnMenuSelection(String input) {
-		System.out.println("Not supporting method");
-	}
 
 	public void notifyFightIntermediateResults() {
 		if (fight.getIteration() == 5) {
@@ -51,32 +40,40 @@ public class FightResultShowerDelegate implements IMenuActionDelegate {
 				.compareTo(fight.getOpponentFighter().getTotalScore());
 		if (result == 0) {
 			System.out.println("Fight is draw. \n score::" + fight.getUserFighter().getTotalScore());
-			fight.setStatus(FightStatus.draw);
+			fight.setStatus(FightStatus.DRAW);
 		} else if (result > 0) {
 			System.out.println("You won the fight with score :: " + fight.getUserFighter().getTotalScore());
 			winner = fight.getUserFighter();
+			fight.setStatus(FightStatus.FINISHED);
 		} else {
 			System.out.println("Your opponent " + fight.getOpponentFighter().getFighterName()
 					+ " won the fight with score :: " + fight.getOpponentFighter().getTotalScore());
 			winner = fight.getOpponentFighter();
+			fight.setStatus(FightStatus.FINISHED);
 		}
 		fight.setWinner(winner);
-		fight.setStatus(FightStatus.finished);
-		
-		//show welcome menu
 	}
 
-	
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.pocket.tank.menu.shower.delegate.IMenuShowerDelegate#actOnMenuSelection(
+	 * java.lang.String)
+	 */
+	@Override
+	public void actOnMenuSelection(String input) {
+		throw new UnsupportedOperationException(Constants.NOT_SUPPORTED_METHOD);
+	}
 
 	@Override
 	public void actOnOpponentAction() {
-		System.out.println("This method is not supported here");
+		throw new UnsupportedOperationException(Constants.NOT_SUPPORTED_METHOD);
 	}
 
 	@Override
 	public boolean isFightON() {
-		System.out.println("This method is not supported here");
-		return false;
+		throw new UnsupportedOperationException(Constants.NOT_SUPPORTED_METHOD);
 	}
 
 }

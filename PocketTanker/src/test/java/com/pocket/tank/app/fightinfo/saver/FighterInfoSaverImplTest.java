@@ -1,11 +1,13 @@
 package com.pocket.tank.app.fightinfo.saver;
 
+import java.io.ObjectOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import com.pocket.tank.app.model.FightInfo;
@@ -16,8 +18,8 @@ public class FighterInfoSaverImplTest {
 	@InjectMocks
 	FighterInfoSaverImpl fighterInfoSaverImpl;
 
-	/*@Mock
-	ObjectOutputStream oos;*/
+	@Mock
+	ObjectOutputStream oos;
 
 	@Before
 	public void setup() {

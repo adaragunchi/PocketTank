@@ -7,8 +7,6 @@ import java.util.Map;
 
 import com.pocket.tank.app.constants.Constants;
 import com.pocket.tank.app.initializer.WeaponsPicker;
-import com.pocket.tank.app.menu.IMenu;
-import com.pocket.tank.app.menu.WeaponMenu;
 import com.pocket.tank.app.model.Fighter;
 import com.pocket.tank.app.util.ReadInput;
 
@@ -16,7 +14,7 @@ import com.pocket.tank.app.util.ReadInput;
  * @author Manjunath
  *
  */
-public class UserFighterOperations extends IFighterOperations/*<FighterOperationsDelegate>*/ {
+public class UserFighterOperations extends IFighterOperations {
 
 	
 
@@ -28,21 +26,21 @@ public class UserFighterOperations extends IFighterOperations/*<FighterOperation
 		Fighter fighter = new Fighter();
 		System.out.println(Constants.FIGHTER_NAME);
 		fighter.setFighterName(ReadInput.readString());
-		GetValidUserAgeInput(fighter);
+		getValidUserAgeInput(fighter);
 		System.out.println(Constants.FIGHTER_COUNTRY);
 		fighter.setCountry(ReadInput.readString());
 		fighter.setSelectedWeaponPower(getUserWeapon());
 		fightInfoSaver.saveFighter(fighter);
 		return fighter;
 	}
-
-	private void GetValidUserAgeInput(Fighter fighter) {
+	
+	private void getValidUserAgeInput(Fighter fighter) {
 		try {
 			System.out.println("Age : ");
 			fighter.setAge(Integer.parseInt(ReadInput.readString()));
 		}catch(Exception e) {
 			System.out.println("Invalid input for age. Please enter valid value.");
-			GetValidUserAgeInput(fighter);
+			getValidUserAgeInput(fighter);
 		}
 	}
 

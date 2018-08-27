@@ -13,13 +13,13 @@ import com.pocket.tank.app.model.FightInfo;
  */
 public interface IMenuActionDelegate {
 	
-	FightInfo fight = new FightInfo();
+	public static final FightInfo fight = new FightInfo();
 	
-	FightInfoSaver fightSaver = new FighterInfoSaverImpl();
+	public static final FightInfoSaver fightSaver = new FighterInfoSaverImpl();
 	
-	public void actOnMenuSelection(String input);
+	void actOnMenuSelection(String input);
 
-	public void actOnOpponentAction();
+	void actOnOpponentAction();
 
 	boolean isFightON();
 	
