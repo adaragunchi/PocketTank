@@ -32,7 +32,7 @@ public class FighterActionsMenuTest {
 
 	@Test
 	public void getUserInput() {
-		Mockito.when(ReadInput.readInt()).thenReturn("19");
+		Mockito.when(ReadInput.readString()).thenReturn("19");
 		fighterActionsMenu.getUserInput();
 	}
 }

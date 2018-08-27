@@ -31,7 +31,7 @@ public class WeaponMenuTest {
 
 	@Test
 	public void getUserInput() {
-		Mockito.when(ReadInput.readInt()).thenReturn("19");
+		Mockito.when(ReadInput.readString()).thenReturn("1");
 		weaponMenu.getUserInput();
 	}
 }

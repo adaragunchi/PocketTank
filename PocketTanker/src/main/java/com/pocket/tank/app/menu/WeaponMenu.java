@@ -15,14 +15,6 @@ public class WeaponMenu implements IMenu {
 
 	@Override
 	public String getUserInput() {
-		String inputForHome = ReadInput.readInt();
-		validateUserInput(inputForHome);
-		return inputForHome;
+		return ReadInput.readString();
 	}
-
-	private void validateUserInput(String userInput) {
-		
-		
-	}
-
 }

@@ -3,6 +3,8 @@
  */
 package com.pocket.tank.app.menu.shower;
 
+import com.pocket.tank.app.initializer.FightInitializer;
+import com.pocket.tank.app.initializer.PocketTankInitializer;
 import com.pocket.tank.app.menu.FighterActionsMenu;
 import com.pocket.tank.app.results.delegate.FightResultShowerDelegate;
 
@@ -28,9 +30,9 @@ public class FightActionsMenuShower extends IMenuShower {
 
 	private void presentMenu() {
 		if(getFighterActionShowerDelegate().isFightON()) {
-			getFighterActionShowerDelegate().showMenuForNextAction();
+			FightInitializer.initialize();
 		}else {
-			getWelcomeMenuShowerDelegate().showMenuForNextAction();
+			PocketTankInitializer.initialize();
 		}
 	}
 }

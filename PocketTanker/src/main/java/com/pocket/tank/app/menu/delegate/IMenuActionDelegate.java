@@ -18,10 +18,9 @@ public interface IMenuActionDelegate {
 	FightInfoSaver fightSaver = new FighterInfoSaverImpl();
 	
 	public void actOnMenuSelection(String input);
-	
-	public void showMenuForNextAction();
-	
-	public boolean isFightON();
-	
+
 	public void actOnOpponentAction();
+
+	boolean isFightON();
+	
 }

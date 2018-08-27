@@ -107,4 +107,23 @@ public class FightInfo  implements Serializable {
 		this.iteration = iteration;
 	}
 	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		StringBuilder fightInfoBuilder = new StringBuilder();
+		fightInfoBuilder.append("\nuserFighter:" + userFighter.getFighterName() + ",\nOpponentFighter:" + opponentFighter.getFighterName() + ",\nFight Status:" + status);
+		
+		if(winner!=null && this.getStatus()!=FightStatus.draw) {
+			fightInfoBuilder.append("\nWinner:");
+			fightInfoBuilder.append(winner.getFighterName());
+			fightInfoBuilder.append("with score");
+			fightInfoBuilder.append(winner.getTotalScore()+"\n");
+		}else if(this.getStatus()!=FightStatus.draw){
+			fightInfoBuilder.append("\nWinner:");
+			fightInfoBuilder.append("Yet to be decided\n");
+		}
+		return fightInfoBuilder.toString();
+	}
 }

@@ -33,7 +33,6 @@ public class UserFighterOperationsTest {
 	@Test
 	public void createUserFighter() {
 		Mockito.when(ReadInput.readString()).thenReturn("1");
-		Mockito.when(ReadInput.readInt()).thenReturn("19");
 		Assert.assertNotNull(userFighterOperations.createUserFighter());
 		Assert.assertNull(userFighterOperations.createOpponentFighter());
 	}

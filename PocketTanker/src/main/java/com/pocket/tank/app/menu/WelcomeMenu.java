@@ -15,7 +15,7 @@ public class WelcomeMenu implements IMenu{
 
 	@Override
 	public String getUserInput() {
-		String inputForHome = ReadInput.readInt();
+		String inputForHome = ReadInput.readString();
 		validateUserInput(inputForHome);
 		return inputForHome;
 	}

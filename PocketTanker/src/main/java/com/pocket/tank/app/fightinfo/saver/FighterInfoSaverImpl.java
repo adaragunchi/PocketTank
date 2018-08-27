@@ -12,16 +12,19 @@ import com.pocket.tank.app.model.Fighter;
 
 public class FighterInfoSaverImpl implements FightInfoSaver {
 
+	private File tempFightInfoFile;
+	private File tempFighterFile;
+	
 	@Override
 	public void saveFighter(Fighter fighter) {
-		File f = null;
-		f = new File("C:\\Temp\\fighter.txt");
 		ObjectOutputStream oos;
 		try {
-			oos = new ObjectOutputStream(new FileOutputStream(f));
+			//tempFighterFile = File.createTempFile("fighter", ".txt");
+			oos = new ObjectOutputStream(new FileOutputStream(new File("C:\\Temp\\fighter.txt")));
 			oos.writeObject(fighter);
 			oos.flush();
 			oos.close();
+			//tempFighterFile.deleteOnExit();
 		} catch (IOException e) {
 			System.err.println(e.getMessage());
 		}
@@ -29,18 +32,17 @@ public class FighterInfoSaverImpl implements FightInfoSaver {
 
 	@Override
 	public void saveFighterInfo(FightInfo fightInfo) {
-		File f = null;
-		f = new File("C:\\Temp\\fighterInfo.txt");
 		ObjectOutputStream oos;
 		try {
-			oos = new ObjectOutputStream(new FileOutputStream(f));
+			//tempFightInfoFile = File.createTempFile("fighterInfo", ".txt");
+			oos = new ObjectOutputStream(new FileOutputStream(new File("C:\\Temp\\fighterInfo.txt")));
 			oos.writeObject(fightInfo);
 			oos.flush();
 			oos.close();
+			//tempFightInfoFile.deleteOnExit();
 		} catch (IOException e) {
 			System.err.println(e.getMessage());
 		}
-
 	}
 
 	@Override
@@ -50,10 +52,11 @@ public class FighterInfoSaverImpl implements FightInfoSaver {
 			FileInputStream fi = new FileInputStream(new File("C:\\Temp\\fighterInfo.txt"));
 			ObjectInputStream oi = new ObjectInputStream(fi);
 			fightInfo = (FightInfo) oi.readObject();
+			System.out.println("Fighter Profile::"+fightInfo.toString());
 			oi.close();
 			fi.close();
 		} catch (Exception e) {
-			System.err.println(e.getMessage());
+			System.err.println("No fights found! try playing a fight.\n");
 		}
 		return fightInfo;
 	}
@@ -62,14 +65,14 @@ public class FighterInfoSaverImpl implements FightInfoSaver {
 	public Fighter getFighter() {
 		Fighter fighter = null;
 		try {
-			FileInputStream fi = new FileInputStream(new File("C:\\Temp\\fighter.txt"));
-			ObjectInputStream oi = new ObjectInputStream(fi);
-			fighter = (Fighter) oi.readObject();
+			FileInputStream fileInputStream = new FileInputStream(new File("C:\\Temp\\fighter.txt"));
+			ObjectInputStream objInputStream = new ObjectInputStream(fileInputStream);
+			fighter = (Fighter) objInputStream.readObject();
 			System.out.println("Fighter Profile::"+fighter.toString());
-			oi.close();
-			fi.close();
+			objInputStream.close();
+			fileInputStream.close();
 		} catch (Exception e) {
-			System.err.println(e.getMessage());
+			System.err.println("No fighter profiles found! Please create one.\n");
 		}
 		return fighter;
 	}

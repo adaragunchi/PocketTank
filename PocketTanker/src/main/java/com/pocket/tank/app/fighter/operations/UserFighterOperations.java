@@ -5,6 +5,8 @@ package com.pocket.tank.app.fighter.operations;
 
 import java.util.Map;
 
+import com.pocket.tank.app.constants.Constants;
+import com.pocket.tank.app.initializer.WeaponsPicker;
 import com.pocket.tank.app.menu.IMenu;
 import com.pocket.tank.app.menu.WeaponMenu;
 import com.pocket.tank.app.model.Fighter;
@@ -24,23 +26,28 @@ public class UserFighterOperations extends IFighterOperations/*<FighterOperation
 	@Override
 	public Fighter createUserFighter() {
 		Fighter fighter = new Fighter();
-		System.out.println("Fighter name : ");
+		System.out.println(Constants.FIGHTER_NAME);
 		fighter.setFighterName(ReadInput.readString());
-		System.out.println("Age : ");
-		fighter.setAge(Integer.parseInt(ReadInput.readInt()));
-		System.out.println("County : ");
-		fighter.setFighterType("User Fighter");
+		GetValidUserAgeInput(fighter);
+		System.out.println(Constants.FIGHTER_COUNTRY);
 		fighter.setCountry(ReadInput.readString());
 		fighter.setSelectedWeaponPower(getUserWeapon());
 		fightInfoSaver.saveFighter(fighter);
 		return fighter;
 	}
 
+	private void GetValidUserAgeInput(Fighter fighter) {
+		try {
+			System.out.println("Age : ");
+			fighter.setAge(Integer.parseInt(ReadInput.readString()));
+		}catch(Exception e) {
+			System.out.println("Invalid input for age. Please enter valid value.");
+			GetValidUserAgeInput(fighter);
+		}
+	}
+
 	private Map<String,Integer> getUserWeapon() {
-		IMenu weaponsMenu = new WeaponMenu();
-		weaponsMenu.getMenuItems();
-		String inputForHome = weaponsMenu.getUserInput();
-		Map<String,Integer> weapon = delegate.getWeaponPower(inputForHome);
+		Map<String,Integer> weapon = delegate.getWeaponPower(WeaponsPicker.pickWeapons());
 		return weapon;
 	}
 

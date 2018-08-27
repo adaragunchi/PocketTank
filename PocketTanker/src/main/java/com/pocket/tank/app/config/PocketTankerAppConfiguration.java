@@ -1,8 +1,6 @@
 package com.pocket.tank.app.config;
 
-import com.pocket.tank.app.menu.WelcomeMenu;
-import com.pocket.tank.app.menu.shower.IMenuShower;
-import com.pocket.tank.app.menu.shower.WelcomeMenuShower;
+import com.pocket.tank.app.initializer.PocketTankInitializer;
 
 /**
  * @author Manjunath 
@@ -14,8 +12,6 @@ public final class PocketTankerAppConfiguration {
 	}
 
 	public static void startApp() {
-		IMenuShower menuShower = new WelcomeMenuShower();
-		menuShower.showMenu(new WelcomeMenu());
-		menuShower.actOnMenuSelect();
+		PocketTankInitializer.initialize();
 	}
 }

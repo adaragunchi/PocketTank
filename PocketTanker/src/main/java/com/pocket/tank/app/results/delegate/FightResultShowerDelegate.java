@@ -33,6 +33,7 @@ public class FightResultShowerDelegate implements IMenuActionDelegate {
 			System.out.println(getOpponentScore());
 			fight.setIteration(fight.getIteration()+1);
 		}
+		fightSaver.saveFighterInfo(fight);
 	}
 
 	private String getUserScore() {
@@ -44,7 +45,7 @@ public class FightResultShowerDelegate implements IMenuActionDelegate {
 				+ fight.getOpponentFighter().getTotalScore();
 	}
 
-	public void announceWinner() {
+	private void announceWinner() {
 		Fighter winner = null;
 		int result = ((Integer) fight.getUserFighter().getTotalScore())
 				.compareTo(fight.getOpponentFighter().getTotalScore());
@@ -61,15 +62,11 @@ public class FightResultShowerDelegate implements IMenuActionDelegate {
 		}
 		fight.setWinner(winner);
 		fight.setStatus(FightStatus.finished);
-		// save the fight
+		
 		//show welcome menu
 	}
 
-	@Override
-	public void showMenuForNextAction() {
-		System.out.println("This method is not supported here");
-		
-	}
+	
 
 	@Override
 	public void actOnOpponentAction() {

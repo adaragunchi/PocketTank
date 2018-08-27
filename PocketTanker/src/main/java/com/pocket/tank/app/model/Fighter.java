@@ -13,7 +13,6 @@ public class Fighter implements Serializable {
 	private String country;
 	private Map<String,Integer> selectedWeaponPower;
 	private int totalScore;
-	private String fighterType;
 	
 	/**
 	 * @return the fighterName
@@ -74,19 +73,6 @@ public class Fighter implements Serializable {
 	 */
 	public void setTotalScore(int totalScore) {
 		this.totalScore = totalScore;
-	}
-	
-	/**
-	 * @return the fighterType
-	 */
-	public String getFighterType() {
-		return fighterType;
-	}
-	/**
-	 * @param fighterType the fighterType to set
-	 */
-	public void setFighterType(String fighterType) {
-		this.fighterType = fighterType;
 	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()

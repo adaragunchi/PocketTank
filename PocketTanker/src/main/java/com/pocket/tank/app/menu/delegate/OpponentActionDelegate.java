@@ -45,26 +45,14 @@ public class OpponentActionDelegate implements IMenuActionDelegate {
 		}
 
 	}
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.pocket.tank.menu.shower.delegate.IMenuShowerDelegate#
-	 * showMenuForNextAction()
-	 */
-	@Override
-	public void showMenuForNextAction() {
-		System.out.println("No menu show is required here");
 
+	public boolean isFightON() {
+		if(0==FightStatus.live.compareTo(fight.getStatus())) {
+			return true;
+		}
+		return false;
 	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.pocket.tank.menu.shower.delegate.IMenuShowerDelegate#actOnOpponentAction(
-	 * )
-	 */
-	@Override
+	
 	public void actOnOpponentAction() {
 		String input = getRandomActionsForOpponent();
 		actOnMenuSelection(input);
@@ -73,22 +61,18 @@ public class OpponentActionDelegate implements IMenuActionDelegate {
 	private String getRandomActionsForOpponent() {
 		List<String> opponentactions = new ArrayList<>();
 		for (FighterActions fighterActions : FighterActions.values()) {
-			opponentactions.add(fighterActions.getActionName());
+			if(!FighterActions.SaveandExit.toString().equalsIgnoreCase(fighterActions.getActionName())) {
+				opponentactions.add(fighterActions.getActionName());
+			}
 		}
-		int weapon = get(0, opponentactions.size());
+		int weapon = getRandomInt(0, opponentactions.size());
 		String randomAction = opponentactions.get(weapon).split(" ")[0];
 		return randomAction;
 	}
-
-	public int get(final int min, final int max) {
+	
+	public int getRandomInt(final int min, final int max) {
 		return ThreadLocalRandom.current().nextInt(min, max);
 	}
-	@Override
-	public boolean isFightON() {
-		if(0==FightStatus.live.compareTo(fight.getStatus())) {
-			return true;
-		}
-		return false;
-	}
+
 
 }

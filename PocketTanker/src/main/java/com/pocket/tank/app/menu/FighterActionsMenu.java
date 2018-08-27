@@ -10,18 +10,10 @@ public class FighterActionsMenu implements IMenu{
 		for (FighterActions fighterActions : FighterActions.values()) {
 			System.out.println(fighterActions.getActionName());
 		}
-		
 	}
 
 	@Override
 	public String getUserInput() {
-		String inputForHome = ReadInput.readInt();
-		validateUserInput(inputForHome);
-		return inputForHome;
+		return ReadInput.readString();
 	}
-
-	private void validateUserInput(String userInput) {
-		
-	}
-
 }

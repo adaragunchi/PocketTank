@@ -3,8 +3,9 @@ package com.pocket.tank.app.enums;
 public enum WelcomeMenuItems {
 	newprofile("1. Create new fighter"),
 	existingProfile("2. View fighter profile"),
-	resume("3. Resume previous game"),
-	exit("4. Exit");
+	viewExistingFight("3. View existing fights"),
+	resume("4. Resume previous game"),
+	exit("5. Exit");
 	
 	public String menuName;
 	

@@ -12,6 +12,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import com.pocket.tank.app.enums.OpponentCountryName;
 import com.pocket.tank.app.enums.OpponentFighterName;
 import com.pocket.tank.app.enums.WeaponsMenuItems;
+import com.pocket.tank.app.initializer.WeaponsPicker;
 import com.pocket.tank.app.model.Fighter;
 
 /**
@@ -23,33 +24,35 @@ public class FighterOperationsDelegate {
 	public Map<String, Integer> getWeaponPower(String weaponEntry) {
 		Map<String,Integer> weaponPowerMap = new HashMap<>();
 		
-		switch (Integer.parseInt(weaponEntry)) {
-		case 1:
+		switch (weaponEntry) {
+		case "1":
 			weaponPowerMap.put(
 			WeaponsMenuItems.KNIFE.getWeapon(),
 			WeaponsMenuItems.KNIFE.getWeaponPower());
 			break;
-		case 2:
+		case "2":
 			weaponPowerMap.put(
 			WeaponsMenuItems.GUN.getWeapon(),
 			WeaponsMenuItems.GUN.getWeaponPower());
 			break;
-		case 3:
+		case "3":
 			weaponPowerMap.put(
 			WeaponsMenuItems.TANK.getWeapon(),
 			WeaponsMenuItems.TANK.getWeaponPower());
 			break;
-		case 4:
+		case "4":
 			weaponPowerMap.put(
 			WeaponsMenuItems.BOMB.getWeapon(),
 			WeaponsMenuItems.BOMB.getWeaponPower());
 			break;
-		case 5  :
+		case "5":
 			weaponPowerMap.put(
 			WeaponsMenuItems.SNIPER.getWeapon(),
 			WeaponsMenuItems.SNIPER.getWeaponPower());
 			break;
 		default:
+			System.out.println("Invalid input! Please pick among the available weapons.");
+			getWeaponPower(WeaponsPicker.pickWeapons());
 			break;
 		}
 		return weaponPowerMap;

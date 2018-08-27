@@ -3,13 +3,13 @@
  */
 package com.pocket.tank.app.menu.delegate;
 
+import com.pocket.tank.app.constants.Constants;
 import com.pocket.tank.app.enums.FightStatus;
 import com.pocket.tank.app.fighter.actions.ActionHitTargetImpl;
 import com.pocket.tank.app.fighter.actions.ActionMissedTargetImpl;
 import com.pocket.tank.app.fighter.actions.FighterActionContext;
-import com.pocket.tank.app.menu.FighterActionsMenu;
-import com.pocket.tank.app.menu.shower.FightActionsMenuShower;
-import com.pocket.tank.app.menu.shower.IMenuShower;
+import com.pocket.tank.app.initializer.FightInitializer;
+import com.pocket.tank.app.initializer.PocketTankInitializer;
 
 /**
  * @author Manjunath
@@ -40,6 +40,8 @@ public class FighterActionDelegate implements IMenuActionDelegate{
 			presentMenu();
 			break;
 		default:
+			System.out.println("invalid action! Please choose again.");
+			FightInitializer.initialize();
 			break;
 		}
 		
@@ -54,40 +56,27 @@ public class FighterActionDelegate implements IMenuActionDelegate{
 	}
 	
 	private void readOnSaveExitGame() {
-		System.out.println("Fight is saved. You can resume the game anytime!");
-	}
-	/**
-	 * 
-	 * @return
-	 */
-	@Override
-	public boolean isFightON() {
-		if(0==FightStatus.live.compareTo(fight.getStatus())) {
-			return true;
-		}
-		return false;
-	}
-
-	@Override
-	public void showMenuForNextAction() {
-		IMenuShower fightMenu = new FightActionsMenuShower();
-		fightMenu.showMenu(new FighterActionsMenu());
-		fightMenu.actOnMenuSelect();
+		System.out.println(Constants.FIGHT_SAVED);
 	}
 	
 	public void presentMenu() {
 		if(isFightON()) {
-			//show fight action menu
-			showMenuForNextAction();
+			FightInitializer.initialize();
 		}else {
-			IMenuActionDelegate welcomeDelegate = new WelcomeActionsDelegate();
-			welcomeDelegate.showMenuForNextAction();
+			PocketTankInitializer.initialize();
 		}
 	}
 
 	@Override
 	public void actOnOpponentAction() {
 		
+	}
+	
+	public boolean isFightON() {
+		if(0==FightStatus.live.compareTo(fight.getStatus())) {
+			return true;
+		}
+		return false;
 	}
 	
 }
