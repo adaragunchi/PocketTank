@@ -11,7 +11,7 @@ import com.pocket.tank.app.fighter.factories.UserFighterFactory;
 /**
  * @author Manjunath
  * 
- * provides instance of factory object based on requested parameters.
+ * provides instance of factory object based on value of input parameter.
  *
  */
 public class FighterFactoryProducer {

@@ -12,6 +12,9 @@ import com.pocket.tank.app.util.ReadInput;
 
 /**
  * @author Manjunath
+ * 
+ * This layer is responsible to create user fighter character. Capture user inputs, validate and 
+ * proceed on further flow.
  *
  */
 public class UserFighterOperations extends IFighterOperations {
@@ -49,9 +52,6 @@ public class UserFighterOperations extends IFighterOperations {
 		return weapon;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.pocket.tanker.fighter.operations.IFighterOperations#createOpponentFighter()
-	 */
 	@Override
 	public Fighter createOpponentFighter() {
 		return null;

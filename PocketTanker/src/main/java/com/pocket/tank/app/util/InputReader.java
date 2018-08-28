@@ -2,6 +2,13 @@ package com.pocket.tank.app.util;
 
 import java.util.Scanner;
 
+/**
+ * 
+ * @author Manjunath
+ * 
+ * This layer is responsible to get input reader for taking user's choice on each menu options.
+ *
+ */
 public class InputReader {
 
 	private final Scanner sc;

@@ -10,7 +10,7 @@ import com.pocket.tank.app.menu.shower.WelcomeMenuShower;
 /**
  * @author Manjunath
  * 
- * Initializes the welcome menu display to user.
+ * This layer initiates view of application feature options to user. 
  *
  */
 public class PocketTankInitializer {

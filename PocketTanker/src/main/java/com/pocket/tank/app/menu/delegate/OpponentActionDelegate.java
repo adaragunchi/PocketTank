@@ -16,7 +16,7 @@ import com.pocket.tank.app.fighter.actions.FighterActionContext;
 /**
  * @author Manjunath
  * 
- * Action for opponent is randomly generated and performed here.
+ * Action for opponent is randomly picked and executed here.
  *
  */
 public class OpponentActionDelegate implements IMenuActionDelegate {

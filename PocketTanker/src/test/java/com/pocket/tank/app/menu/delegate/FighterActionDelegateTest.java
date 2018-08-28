@@ -1,28 +1,21 @@
 package com.pocket.tank.app.menu.delegate;
 
+import static org.junit.Assert.assertTrue;
+
 import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.powermock.api.mockito.PowerMockito;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
 
 import com.pocket.tank.app.enums.FightStatus;
 import com.pocket.tank.app.fightinfo.saver.FightInfoSaver;
-import com.pocket.tank.app.initializer.FightInitializer;
 import com.pocket.tank.app.model.FightInfo;
 import com.pocket.tank.app.model.Fighter;
-import com.pocket.tank.app.util.ReadInput;
 
-@RunWith(PowerMockRunner.class)
-@PrepareForTest({ FightInitializer.class,ReadInput.class})
 public class FighterActionDelegateTest {
 
 	@InjectMocks
@@ -36,8 +29,6 @@ public class FighterActionDelegateTest {
 	@Before
 	public void setup() {
 		MockitoAnnotations.initMocks(this);
-		PowerMockito.mock(FightInitializer.class);
-		PowerMockito.mock(ReadInput.class);
 	}
 
 	@Test
@@ -57,11 +48,14 @@ public class FighterActionDelegateTest {
 		IMenuActionDelegate.fight.loadFight(fight);
 		fighterActionDelegate.actOnMenuSelection("1");
 		fighterActionDelegate.actOnMenuSelection("2");
-		Mockito.doNothing().when(fightInfoSaver).saveFighter(userFighter);
-		/*Mockito.doNothing().doThrow(Exception.class).when(FightInitializer.class);
-		FightInitializer.initialize();
-		Mockito.when(ReadInput.readString()).thenReturn("1");
-		fighterActionDelegate.actOnMenuSelection("3");*/
-
+		fighterActionDelegate.isFightON();
+	}
+	@Test
+	public void actOnOpponentAction() {
+		try{
+			fighterActionDelegate.actOnOpponentAction();
+		}catch (Exception e) {
+			assertTrue(true);
+		}
 	}
 }

@@ -12,6 +12,13 @@ import java.util.Properties;
 import com.pocket.tank.app.model.FightInfo;
 import com.pocket.tank.app.model.Fighter;
 
+/**
+ * @author Manjunath
+ *
+ * This layer is responsible for data saving and retrieving operations in file.
+ * FightInfo and Fighters are saved and fetched using methods implemented here.
+ *
+ */
 public class FighterInfoSaverImpl implements FightInfoSaver {
 	
 	@Override
@@ -72,6 +79,11 @@ public class FighterInfoSaverImpl implements FightInfoSaver {
 		return fighter;
 	}
 	
+	/**
+	 * This method is responsible to fetch user defined file source path from application properties file.
+	 * 
+	 * @return
+	 */
 	private String getFilePath() {
 		Properties props = new Properties();
 		try {

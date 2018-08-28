@@ -9,6 +9,7 @@ import com.pocket.tank.app.enums.FightStatus;
 
 /**
  * @author Manjunath
+ * Business object to contain Fight info data.
  *
  */
 public class FightInfo  implements Serializable {

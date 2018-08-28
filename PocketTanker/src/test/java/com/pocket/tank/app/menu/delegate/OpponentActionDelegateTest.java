@@ -5,24 +5,17 @@ import java.util.Map;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.powermock.api.mockito.PowerMockito;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
 
 import com.pocket.tank.app.enums.FightStatus;
 import com.pocket.tank.app.fighter.actions.FighterActionContext;
 import com.pocket.tank.app.fighter.actions.IFighterActionStrategy;
 import com.pocket.tank.app.model.FightInfo;
 import com.pocket.tank.app.model.Fighter;
-import com.pocket.tank.app.util.ReadInput;
 
-@RunWith(PowerMockRunner.class)
-@PrepareForTest({ReadInput.class})
 public class OpponentActionDelegateTest {
 	@InjectMocks
 	OpponentActionDelegate opponentActionDelegate;
@@ -38,7 +31,7 @@ public class OpponentActionDelegateTest {
 	@Before
 	public void setup() {
 		MockitoAnnotations.initMocks(this);
-		PowerMockito.mockStatic(ReadInput.class);
+		//PowerMockito.mockStatic(ReadInput.class);
 	}
 
 	@Test

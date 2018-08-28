@@ -9,6 +9,8 @@ import com.pocket.tank.app.model.FightInfo;
 
 /**
  * @author Manjunath
+ * 
+ * method contract interface for actions to ber performed on various menu display to user.
  *
  */
 public interface IMenuActionDelegate {

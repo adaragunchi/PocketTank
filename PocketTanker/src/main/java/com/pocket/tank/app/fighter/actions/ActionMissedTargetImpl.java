@@ -7,6 +7,9 @@ import com.pocket.tank.app.model.Fighter;
 
 /**
  * @author Manjunath
+ * 
+ *  This layer takes care of action 'Missed Target' by decrementing player's score by power 10.
+ *  This value can be made configurable or randomly chosen to make the game more dynamic! 
  *
  */
 public class ActionMissedTargetImpl implements IFighterActionStrategy {

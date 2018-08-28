@@ -8,8 +8,9 @@ import com.pocket.tank.app.menu.shower.FightActionsMenuShower;
 import com.pocket.tank.app.menu.shower.IMenuShower;
 
 /**
- * @author M1027311
+ * @author Manjunath
  *
+ * This layer initiates view of menu options for fighter's actions after the play is started or resumed. 
  */
 public class FightInitializer {
 

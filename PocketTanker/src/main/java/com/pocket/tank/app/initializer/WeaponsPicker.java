@@ -7,7 +7,9 @@ import com.pocket.tank.app.menu.IMenu;
 import com.pocket.tank.app.menu.WeaponMenu;
 
 /**
- * @author M1027311
+ * @author Manjunath
+ * 
+ * This layer provides view of weapons available to play fight. 
  *
  */
 public class WeaponsPicker {

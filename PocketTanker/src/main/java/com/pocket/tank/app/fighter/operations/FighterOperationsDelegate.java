@@ -18,6 +18,8 @@ import com.pocket.tank.app.model.Fighter;
 /**
  * @author Manjunath
  *
+ * Menu is shown to user to select weapon for the fight, post menu selection, 
+ * weapon power is associated with user weapon which in turn used to calculate fight winner.
  */
 public class FighterOperationsDelegate {
 
@@ -58,6 +60,11 @@ public class FighterOperationsDelegate {
 		return weaponPowerMap;
 	}
 
+	/**
+	 * this method creates opponent fighter to play fight with user.
+	 * Weapon for opponent is selected randomly among the available weapons list
+	 * @return
+	 */
 	public Fighter createOpponentFighter() {
 		Fighter fighter=new Fighter();
 		List<String> opponentNames=new ArrayList<>();

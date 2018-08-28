@@ -7,6 +7,7 @@ import com.pocket.tank.app.model.Fighter;
 
 /**
  * @author Manjunath
+ * This method is responsible to create opponent fighter.
  *
  */
 public class OpponentFighterOperations extends IFighterOperations{

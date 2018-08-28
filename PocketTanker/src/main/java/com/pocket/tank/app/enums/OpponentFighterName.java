@@ -1,7 +1,14 @@
 package com.pocket.tank.app.enums;
 
+/**
+ * 
+ * @author Manjunath
+ * 
+ * Opponent's name is randomly chosen from below names enum.
+ *
+ */
 public enum OpponentFighterName {
-	ROCK("Rock"), VIN_DISEAL("Vin Diseal"), LORD_VOLDEMORT("Lord Voldemort");
+	JOKER("The Joker"), DARTH_VADER("Darth Vader"), LORD_VOLDEMORT("Lord Voldemort");
 	private String opponentName;
 
 	/**

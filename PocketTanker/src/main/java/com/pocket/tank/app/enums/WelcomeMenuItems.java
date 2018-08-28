@@ -1,5 +1,11 @@
 package com.pocket.tank.app.enums;
 
+/**
+ * 
+ * @author Manjunath
+ * Menu options for application feature is maintained in this enum.
+ *
+ */
 public enum WelcomeMenuItems {
 	NEW_PROFILE("1. Create new fighter"),
 	EXISTING_PROFILE("2. View fighter profile"),

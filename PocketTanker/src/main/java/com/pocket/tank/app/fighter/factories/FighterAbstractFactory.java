@@ -9,7 +9,7 @@ import com.pocket.tank.app.fighter.operations.UserFighterOperations;
 /**
  * @author Manjunath
  * 
- * Interface to provide instance of resecting implementing classes.
+ * Interface to provide instance of respective implementation classes.
  *
  */
 public abstract class FighterAbstractFactory {

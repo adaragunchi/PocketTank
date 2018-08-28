@@ -8,7 +8,8 @@ import com.pocket.tank.app.model.Fighter;
 
 /**
  * @author Manjunath
- *
+ * 
+ * This is method contract for saving and retrieving data in and from file.
  */
 public interface FightInfoSaver {
 	void saveFighter(Fighter fighter);

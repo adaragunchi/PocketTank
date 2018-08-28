@@ -3,6 +3,13 @@ package com.pocket.tank.app.model;
 import java.io.Serializable;
 import java.util.Map;
 
+/**
+ * 
+ * @author Manjunath
+ * 
+ * Business object to contain Fighter data.
+ *
+ */
 public class Fighter implements Serializable {
 	/**
 		 * 

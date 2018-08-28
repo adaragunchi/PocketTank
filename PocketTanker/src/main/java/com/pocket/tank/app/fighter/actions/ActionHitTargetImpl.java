@@ -10,7 +10,7 @@ import com.pocket.tank.app.model.Fighter;
 /**
  * @author Manjunath
  * 
- * 
+ * This layer takes care of action 'Hit Target' by incrementing player's score by his selected weapon power.
  *
  */
 public class ActionHitTargetImpl implements IFighterActionStrategy {

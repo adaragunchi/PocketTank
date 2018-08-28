@@ -1,5 +1,12 @@
 package com.pocket.tank.app.enums;
 
+/**
+ * 
+ * @author Manjunath
+ * 
+ * 
+ *
+ */
 public enum WeaponsMenuItems {
 	
 	KNIFE("1 Knife (Power=30)",30),

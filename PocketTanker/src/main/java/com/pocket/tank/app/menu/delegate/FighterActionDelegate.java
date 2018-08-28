@@ -14,8 +14,8 @@ import com.pocket.tank.app.initializer.PocketTankInitializer;
 /**
  * @author Manjunath
  * 
- * Once user picks from available fight actions, the action is performed here.
- *
+ * Action is performed on each menu selection of user's choice here.
+ * 
  */
 public class FighterActionDelegate implements IMenuActionDelegate{
 
@@ -61,7 +61,9 @@ public class FighterActionDelegate implements IMenuActionDelegate{
 	private void readOnSaveExitGame() {
 		System.out.println(Constants.FIGHT_SAVED);
 	}
-	
+	/**
+	 * this method decides next menu to be presented to user based on current fight play setuations.
+	 */
 	public void presentMenu() {
 		if(isFightON()) {
 			FightInitializer.initialize();
@@ -75,6 +77,9 @@ public class FighterActionDelegate implements IMenuActionDelegate{
 		throw new UnsupportedOperationException(Constants.NOT_SUPPORTED_METHOD);		
 	}
 	
+	/**
+	 * This method returns whether fight is ongoing or not.
+	 */
 	@Override
 	public boolean isFightON() {
 		if(0==FightStatus.LIVE.compareTo(fight.getStatus())) {

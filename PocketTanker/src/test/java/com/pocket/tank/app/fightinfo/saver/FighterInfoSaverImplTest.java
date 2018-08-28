@@ -51,9 +51,5 @@ public class FighterInfoSaverImplTest {
 	public void getFighter() {
 		fighterInfoSaverImpl.getFighter();
 	}
-	/*
-	 * @Test(expected=IOException.class) public void saveFighterException() {
-	 * doThrow(IOException.class).when(oos.writeObject(null)));
-	 * fighterInfoSaverImpl.saveFighter(null); }
-	 */
+	
 }

@@ -5,6 +5,8 @@ package com.pocket.tank.app.enums;
 
 /**
  * @author Manjunath
+ * 
+ * Fight status is maintained from below options.
  *
  */
 public enum FightStatus {

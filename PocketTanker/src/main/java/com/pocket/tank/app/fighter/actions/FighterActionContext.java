@@ -8,7 +8,7 @@ import com.pocket.tank.app.model.Fighter;
 /**
  * @author Manjunath
  * 
- *  
+ *  This layer provides access to actions implementation classes dynamically, based on action to be performed.
  *
  */
 public class FighterActionContext {
